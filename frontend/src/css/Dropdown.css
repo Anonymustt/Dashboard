@@ -1,0 +1,22 @@
+.dropdown-container {
+    margin-bottom: 20px;
+  }
+  
+  .dropdown-label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .dropdown-select {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .dropdown-select:focus {
+    border-color: #007bff; 
+  }
+  
