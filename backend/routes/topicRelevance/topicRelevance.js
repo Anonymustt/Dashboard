@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
     const rawData = await Data.find();
 
 
-    console.log("raw Data")
     const filteredData = rawData.filter(entry => entry.topic && entry.topic.trim() !== '' && entry.relevance !== null && entry.relevance !== '');
 
     const aggregatedData = filteredData.reduce((acc, entry) => {

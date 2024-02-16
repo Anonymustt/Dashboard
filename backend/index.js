@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import morgan from 'morgan';
+import {config} from 'dotenv'
 import cors from 'cors';
 import sectorRoutes from './routes/sector/sectorRoutes.js';
 import topicRoutes from './routes/topic/topicRoutes.js';
@@ -15,11 +16,12 @@ import pestleIntensity from './routes/pest/pestRoute.js'
 import countryLikelihood from './routes/countryLikelihood/countryLikelyhood.js'
 import iwsRoutes from './routes/intensitywsector/iWS.js';
 
-const port = 5000;
+config();
+const port = process.env.PORT || 5001;
 
-const mongoURI = 'mongodb://localhost:27017/Blackcoffer';
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
+const mongoURI = process.env.MONGOURI;
+mongoose.connect(mongoURI, { useNewUrlParser: true })
+  .then(async() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
 const expressApp = express();

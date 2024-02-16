@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BarChart from '../../components/BarChart'; 
 
+
 const TopicPage = () => {
   const [topicData, setTopicData] = useState([]);
 
@@ -10,7 +11,7 @@ const TopicPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/topicRelevance'); 
+      const response = await fetch(`${process.env.BACKEND_URL}/api/topicRelevance`); 
       if (!response.ok) {
         throw new Error('Failed to fetch topic data');
       }

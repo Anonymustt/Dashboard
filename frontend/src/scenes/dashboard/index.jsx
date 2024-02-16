@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   const fetchRegionImpactData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/regionImpact');
+      const response = await fetch(`${process.env.BACKEND_URL}/api/regionImpact`);
       if (!response.ok) {
         throw new Error('Failed to fetch region impact data');
       }
@@ -27,7 +27,7 @@ const Dashboard = () => {
 
   const fetchPestleIntensityData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/pestleIntensity');
+      const response = await fetch(`${process.env.BACKEND_URL}/api/pestleIntensity`);
       if (!response.ok) {
         throw new Error('Failed to fetch pestle intensity data');
       }

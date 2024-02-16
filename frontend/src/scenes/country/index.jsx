@@ -15,7 +15,7 @@ const Country = () => {
 
   const fetchAvailableYears = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/years');
+      const response = await fetch(`${process.env.BACKEND_URL}/api/years`);
       const years = await response.json();
       setAvailableYears(years);
     } catch (error) {
@@ -29,11 +29,10 @@ const Country = () => {
       fetchChartData();
     }
   }, [selectedYear]);
-// eslint-disable-next-line
   const fetchChartData = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:5000/api/countryLikelihood/${selectedYear}`);
+      const response = await fetch(`${process.env.BACKEND_URL}/api/countryLikelihood/${selectedYear}`);
       if (!response.ok) {
         throw new Error(`Failed to fetch data for year ${selectedYear}`);
       }

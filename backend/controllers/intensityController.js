@@ -14,7 +14,6 @@ const getIntensityById = async (req, res) => {
   const { id } = req.params;
   try {
     const data = await Data.findById(id);
-    console.log(data)
     if (!data) {
       return res.status(404).json({ error: `No data found for intensity with ID ${id}` });
     }

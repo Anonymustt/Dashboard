@@ -20,8 +20,8 @@ const dataSchema = new Schema({
   source: String,
   title: String,
   likelihood: Number
-}); 
+},{collection:'graph'}); 
 
-const Data = mongoose.model('Data', dataSchema); 
+const Data = mongoose.model('graph', dataSchema); 
 
 export default Data;
